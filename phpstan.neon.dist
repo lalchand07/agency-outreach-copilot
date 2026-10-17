@@ -5,4 +5,6 @@ parameters:
         - bin
         - public/index.php
         - tests
+    excludePaths:
+        - templates
     tmpDir: var/phpstan

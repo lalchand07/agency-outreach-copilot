@@ -78,7 +78,7 @@ TXT;
             '',
             'VERIFIED OBSERVATIONS (use exactly one; give its number as observation_index)',
         ];
-        foreach (array_values($observations) as $i => $obs) {
+        foreach ($observations as $i => $obs) {
             $lines[] = sprintf('%d. %s (from %s)', $i + 1, $obs['text'], $obs['source_url']);
         }
         $lines[] = '';

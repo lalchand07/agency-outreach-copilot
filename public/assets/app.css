@@ -1,0 +1,6 @@
+/* Minimal fallback styles in case the Tailwind CDN is unreachable. */
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Naskh Arabic", "Noto Nastaliq Urdu", sans-serif; }
+kbd { font-family: ui-monospace, monospace; border: 1px solid #cbd5e1; border-radius: 3px; padding: 0 3px; font-size: 0.75em; }
+textarea[dir="rtl"] { font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", system-ui, sans-serif; line-height: 1.9; }
+button:disabled { cursor: not-allowed; }
+article.draft:focus { outline: none; }

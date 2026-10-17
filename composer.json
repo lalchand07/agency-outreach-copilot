@@ -1,0 +1,72 @@
+{
+    "name": "lalchand07/agency-outreach-copilot",
+    "description": "Self-hosted B2B outreach copilot: find businesses through official sources, research their public website, draft personalised outreach, and send only what a human approves.",
+    "type": "project",
+    "license": "MIT",
+    "keywords": [
+        "outreach",
+        "b2b",
+        "sales",
+        "crm",
+        "llm",
+        "human-in-the-loop",
+        "travel-agency"
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/lalchand07/php-ai-guard",
+            "no-api": true
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "ext-ctype": "*",
+        "ext-curl": "*",
+        "ext-dom": "*",
+        "ext-json": "*",
+        "ext-libxml": "*",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "phpmailer/phpmailer": "^6.9",
+        "your-vendor/php-ai-guard": "dev-main@dev"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^10.5"
+    },
+    "suggest": {
+        "ext-pdo_sqlite": "Default database",
+        "ext-pdo_mysql": "Optional MySQL/MariaDB database"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "serve": "php -S 127.0.0.1:8080 -t public public/index.php",
+        "check": [
+            "@analyse",
+            "@test"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "8.1.30"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

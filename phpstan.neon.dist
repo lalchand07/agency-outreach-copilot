@@ -1,0 +1,10 @@
+parameters:
+    level: 6
+    paths:
+        - src
+        - bin
+        - public/index.php
+        - tests
+    excludePaths:
+        - templates
+    tmpDir: var/phpstan

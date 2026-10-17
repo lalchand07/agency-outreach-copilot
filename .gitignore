@@ -1,0 +1,9 @@
+/vendor/
+/.env
+/config/product.php
+/var/*
+!/var/.gitkeep
+/.phpunit.cache/
+/.phpunit.result.cache
+/coverage/
+.DS_Store

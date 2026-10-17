@@ -1,0 +1,10 @@
+# If the whole project ended up inside public_html, serve only public/.
+# Better: point the domain's document root at the public/ folder.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ public/ [L]
+    RewriteRule ^((?!public/).*)$ public/$1 [L]
+</IfModule>
+<FilesMatch "^\.env|\.sqlite|composer\.(json|lock)$">
+    Require all denied
+</FilesMatch>

@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+// agency-outreach-copilot command line. Use it from cron on shared hosting:
+//
+//   */15 * * * *  php /home/you/outreach/bin/console send
+//   0 8 * * *     php /home/you/outreach/bin/console followups
+//   0 3 * * 0     php /home/you/outreach/bin/console retention
+
+declare(strict_types=1);
+
+if (PHP_SAPI !== 'cli') {
+    exit(1);
+}
+
+$root = dirname(__DIR__);
+require $root . '/vendor/autoload.php';
+
+exit((new App\Cli\Console(App\App::boot($root)))->run(array_slice($argv, 1)));

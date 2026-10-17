@@ -298,7 +298,7 @@ Architecture, data model, prompts and schemas: [PLAN.md](PLAN.md). Contributing:
 
 ## Built by
 
-_Your name / company here._ ([website](https://example.com) · [GitHub](https://github.com/lalchand07))
+_Lal Chand / Codic Systems._ ([website](https://codicsystems.com) · [GitHub](https://github.com/lalchand07))
 
 ## License
 

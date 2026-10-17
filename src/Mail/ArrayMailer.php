@@ -23,4 +23,9 @@ final class ArrayMailer implements MailerInterface
         }
         $this->sent[] = $email;
     }
+
+    public function last(): ?Email
+    {
+        return $this->sent === [] ? null : $this->sent[count($this->sent) - 1];
+    }
 }

@@ -26,7 +26,7 @@ final class CsvImporter
     private const GUESSES = [
         'name' => ['name', 'company', 'company name', 'business', 'business name', 'agency', 'agency name', 'exhibitor', 'organisation', 'organization'],
         'website' => ['website', 'web', 'url', 'site', 'web site', 'homepage', 'domain'],
-        'email' => ['email', 'e-mail', 'email address', 'mail'],
+        'email' => ['email', 'e mail', 'email address', 'e mail address', 'mail'],
         'phone' => ['phone', 'telephone', 'tel', 'phone number', 'mobile', 'contact number', 'whatsapp'],
         'contact_name' => ['contact', 'contact name', 'contact person', 'person', 'full name'],
         'linkedin_url' => ['linkedin', 'linkedin url', 'linkedin profile'],

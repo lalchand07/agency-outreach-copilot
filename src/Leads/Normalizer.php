@@ -64,6 +64,8 @@ final class Normalizer
         if ($raw === '') {
             return null;
         }
+        // "+44 (0)20 …": the bracketed trunk zero is not dialled from abroad.
+        $raw = (string) preg_replace('/\(\s*0\s*\)/', '', $raw);
         $plus = str_starts_with($raw, '+');
         $digits = (string) preg_replace('/\D+/', '', $raw);
         if (strlen($digits) < 7) {

@@ -83,6 +83,7 @@ final class ReviewService
             $sql .= ' AND status IN (' . implode(',', array_fill(0, count($statuses), '?')) . ')';
             $params = array_merge($params, $statuses);
         }
+        // Newest generation first; within it email, LinkedIn, WhatsApp.
         $order = "CASE channel WHEN 'email' THEN 1 WHEN 'linkedin' THEN 2 ELSE 3 END";
 
         return array_map(static function (array $row): array {
@@ -91,7 +92,7 @@ final class ReviewService
             }
 
             return $row;
-        }, $this->db->all($sql . ' ORDER BY id DESC, ' . $order, $params));
+        }, $this->db->all($sql . ' ORDER BY created_at DESC, ' . $order . ', id DESC', $params));
     }
 
     /**

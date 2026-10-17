@@ -163,7 +163,8 @@
     }
   });
 
-  document.addEventListener('htmx:afterSwap', function (event) {
+  // afterSettle, not afterSwap: htmx restores the new element's attributes during settling.
+  document.addEventListener('htmx:afterSettle', function (event) {
     var swapped = event.detail.target && event.detail.target.id ? document.getElementById(event.detail.target.id) : null;
     init(document);
     if (!swapped) { return; }

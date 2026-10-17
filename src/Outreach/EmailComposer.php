@@ -14,9 +14,9 @@ use App\Mail\Email;
 final class EmailComposer
 {
     public const FOOTER_TEXT = [
-        'en' => ['why' => 'You are receiving this one-off message because %s is publicly listed as a business contact on your website.', 'unsubscribe' => 'Not interested? Unsubscribe and we will not contact you again: %s'],
-        'ur' => ['why' => 'آپ کو یہ پیغام اس لیے ملا ہے کیونکہ %s آپ کی ویب سائٹ پر کاروباری رابطے کے طور پر درج ہے۔', 'unsubscribe' => 'دلچسپی نہیں؟ یہاں کلک کریں، ہم دوبارہ رابطہ نہیں کریں گے: %s'],
-        'ar' => ['why' => 'تصلك هذه الرسالة لأن %s مدرج علنًا كجهة اتصال تجارية على موقعكم.', 'unsubscribe' => 'غير مهتم؟ ألغِ الاشتراك ولن نتواصل معك مرة أخرى: %s'],
+        'en' => ['why' => 'We are writing to %s as a business contact because we believe this may be relevant to your company.', 'unsubscribe' => 'Not interested? Unsubscribe and we will not contact you again: %s'],
+        'ur' => ['why' => 'ہم %s پر کاروباری رابطے کے طور پر لکھ رہے ہیں کیونکہ ہمارا خیال ہے کہ یہ آپ کی کمپنی کے لیے مفید ہو سکتا ہے۔', 'unsubscribe' => 'دلچسپی نہیں؟ اس لنک سے ان سبسکرائب کریں، ہم دوبارہ رابطہ نہیں کریں گے: %s'],
+        'ar' => ['why' => 'نراسل %s بصفته جهة اتصال تجارية لأننا نعتقد أن هذا قد يهم شركتكم.', 'unsubscribe' => 'غير مهتم؟ ألغِ الاشتراك ولن نتواصل معك مرة أخرى: %s'],
     ];
 
     public function __construct(private ProductProfile $product, private string $appUrl, private string $replyTo = '')

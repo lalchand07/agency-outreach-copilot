@@ -182,4 +182,25 @@ final class SendingTest extends TestCase
         self::assertSame('sent', $log['status']);
         self::assertSame(Status::CONTACTED, ($this->app->leads()->find($leadId) ?? [])['status']);
     }
+
+    public function testTheExampleProductProfileNeverSends(): void
+    {
+        $example = \App\Config\ProductProfile::load(dirname(__DIR__, 2) . '/config');
+        if (!$example->isExample) {
+            self::markTestSkipped('config/product.php exists locally');
+        }
+        $this->buildApp(false, [], $example);
+        $draftId = $this->app->drafts()->store($this->lead(), 'email', 'en', 'Subject', 'Short body here.', 'obs', false);
+
+        self::assertStringContainsString('config/product.php', (string) $this->app->review()->approve($draftId));
+    }
+
+    public function testUrduEmailFooterIsBilingual(): void
+    {
+        $footer = $this->app->composer()->footer('info@crescent.example', str_repeat('a', 32), 'ur');
+
+        self::assertStringContainsString('ہم info@crescent.example پر', $footer);
+        self::assertStringContainsString('We are writing to info@crescent.example', $footer);
+        self::assertStringContainsString('https://outreach.example.test/u/' . str_repeat('a', 32), $footer);
+    }
 }

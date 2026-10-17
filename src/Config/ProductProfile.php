@@ -81,6 +81,10 @@ final class ProductProfile
      */
     public function missingSenderFields(): array
     {
+        if ($this->isExample) {
+            // The example profile is a template, never a real sender.
+            return ['name', 'company', 'email', 'address'];
+        }
         $missing = [];
         foreach (['name', 'company', 'email', 'address'] as $field) {
             if ($this->sender($field) === '') {

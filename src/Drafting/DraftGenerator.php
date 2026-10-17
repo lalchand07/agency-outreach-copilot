@@ -51,7 +51,8 @@ final class DraftGenerator
         $channels = array_values(array_intersect($channels, ['email', 'linkedin', 'whatsapp'])) ?: ['email'];
 
         $prompt = $this->prompts->build($lead, $observations, $language, $extraInstruction);
-        $options = ['system' => DraftPromptBuilder::SYSTEM, 'max_tokens' => 900, 'cache' => !$fresh && $extraInstruction === ''];
+        // Urdu and Arabic need more tokens per word than English.
+        $options = ['system' => DraftPromptBuilder::SYSTEM, 'max_tokens' => 1200, 'cache' => !$fresh && $extraInstruction === ''];
         try {
             $draft = $this->ai->withFeature('drafting')->json($prompt, DraftPromptBuilder::schema(), $options);
             $problems = $this->problems($draft, $channels);

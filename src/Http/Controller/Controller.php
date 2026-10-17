@@ -35,7 +35,7 @@ abstract class Controller
             $this->session->flash($type !== '' ? $type : 'info', $message);
         }
         $to = $request->input('_back');
-        if ($to === '' || !str_starts_with($to, '/') || str_starts_with($to, '//')) {
+        if ($to === '' || !str_starts_with($to, '/') || str_starts_with($to, '//') || str_contains($to, '\\')) {
             $to = $fallback;
         }
 

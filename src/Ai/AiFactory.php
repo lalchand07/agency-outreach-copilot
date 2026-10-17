@@ -109,7 +109,8 @@ final class AiFactory
             'storage' => $storage,
             'cache' => ['driver' => 'file', 'path' => $root . '/var/ai-cache', 'ttl' => 7 * 86400],
             'privacy' => [
-                'patterns' => ['card', 'iban', 'mrz'],
+                // Applied to providers marked allows_personal_data = false (free tiers).
+                'patterns' => ['card', 'iban', 'mrz', 'email', 'phone'],
                 'on_disallowed' => 'redact',
             ],
             'retry' => ['max_retries' => 1, 'base_delay_ms' => 500, 'max_delay_ms' => 4000, 'max_retry_after' => 10],
